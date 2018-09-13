@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --mode development",
+    "start": "concurrently 'yarn run react' 'yarn run server'",
+    "react": "webpack-dev-server --mode development",
+    "server": "nodemon src/server/index",
     "build": "webpack --mode production",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
@@ -53,13 +55,15 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
-    "@storybook/react": "^3.4.10",
     "@storybook/addon-actions": "^3.4.10",
     "@storybook/addon-links": "^3.4.10",
     "@storybook/addons": "^3.4.10",
+    "@storybook/react": "^3.4.10",
     "axios": "^0.18.0",
     "babel-eslint": "^9.0.0",
+    "concurrently": "^4.0.1",
     "emotion": "^9.2.8",
+    "nodemon": "^1.18.4",
     "prop-types": "^15.6.2",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
@@ -70,6 +74,10 @@
     "redux-devtools-extension": "^2.13.5",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
-    "regenerator-runtime": "^0.12.1"
+    "regenerator-runtime": "^0.12.1",
+    "socket-io": "^1.0.0",
+    "socket.io": "^2.1.1",
+    "socket.io-client": "^2.1.1",
+    "uuid": "^3.3.2"
   }
 }
